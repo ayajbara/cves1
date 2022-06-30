@@ -14,7 +14,6 @@ resource "aws_kms_key" "logs_key" {
     yor_trace            = "cd8fa2a7-4868-4cd1-993d-da4644808ce5"
     keyyy1               = "valueeeee"
   }
-  enable_key_rotation = true
 }
 
 resource "aws_kms_alias" "logs_key_alias" {

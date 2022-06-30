@@ -41,7 +41,6 @@ resource azurerm_linux_virtual_machine "linux_machine" {
     }, {
     keyyy1 = "valueeeee"
   })
-  allow_extension_operations = false
 }
 
 resource azurerm_windows_virtual_machine "windows_machine" {
@@ -79,5 +78,4 @@ resource azurerm_windows_virtual_machine "windows_machine" {
     }, {
     keyyy1 = "valueeeee"
   })
-  allow_extension_operations = false
 }
