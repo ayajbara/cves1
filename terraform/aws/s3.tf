@@ -28,6 +28,38 @@ resource "aws_s3_bucket" "data_log_bucket" {
   bucket = "data-log-bucket"
 }
 
+
+resource "aws_s3_bucket_versioning" "data_log_bucket" {
+  bucket = aws_s3_bucket.data_log_bucket.id
+
+  versioning_configuration {
+    status = "Enabled"
+  }
+}
+
+
+
+resource "aws_s3_bucket_server_side_encryption_configuration" "data_log_bucket" {
+  bucket = aws_s3_bucket.data_log_bucket.bucket
+
+  rule {
+    apply_server_side_encryption_by_default {
+      sse_algorithm     = "aws:kms"
+    }
+  }
+}
+
+
+resource "aws_s3_bucket_server_side_encryption_configuration" "data_log_bucket" {
+  bucket = aws_s3_bucket.data_log_bucket.bucket
+
+  rule {
+    apply_server_side_encryption_by_default {
+      sse_algorithm     = "AES256"
+    }
+  }
+}
+
 resource "aws_s3_bucket_logging" "data" {
   bucket = aws_s3_bucket.data.id
 
@@ -102,8 +134,52 @@ resource "aws_s3_bucket" "financials" {
 }
 
 
+resource "aws_s3_bucket_server_side_encryption_configuration" "financials" {
+  bucket = aws_s3_bucket.financials.bucket
+
+  rule {
+    apply_server_side_encryption_by_default {
+      sse_algorithm     = "aws:kms"
+    }
+  }
+}
+
+
+
 resource "aws_s3_bucket" "financials_log_bucket" {
   bucket = "financials-log-bucket"
+}
+
+
+resource "aws_s3_bucket_versioning" "financials_log_bucket" {
+  bucket = aws_s3_bucket.financials_log_bucket.id
+
+  versioning_configuration {
+    status = "Enabled"
+  }
+}
+
+
+
+resource "aws_s3_bucket_server_side_encryption_configuration" "financials_log_bucket" {
+  bucket = aws_s3_bucket.financials_log_bucket.bucket
+
+  rule {
+    apply_server_side_encryption_by_default {
+      sse_algorithm     = "aws:kms"
+    }
+  }
+}
+
+
+resource "aws_s3_bucket_server_side_encryption_configuration" "financials_log_bucket" {
+  bucket = aws_s3_bucket.financials_log_bucket.bucket
+
+  rule {
+    apply_server_side_encryption_by_default {
+      sse_algorithm     = "AES256"
+    }
+  }
 }
 
 resource "aws_s3_bucket_logging" "financials" {
@@ -173,8 +249,52 @@ resource "aws_s3_bucket" "operations" {
 }
 
 
+resource "aws_s3_bucket_server_side_encryption_configuration" "operations" {
+  bucket = aws_s3_bucket.operations.bucket
+
+  rule {
+    apply_server_side_encryption_by_default {
+      sse_algorithm     = "aws:kms"
+    }
+  }
+}
+
+
+
 resource "aws_s3_bucket" "operations_log_bucket" {
   bucket = "operations-log-bucket"
+}
+
+
+resource "aws_s3_bucket_versioning" "operations_log_bucket" {
+  bucket = aws_s3_bucket.operations_log_bucket.id
+
+  versioning_configuration {
+    status = "Enabled"
+  }
+}
+
+
+
+resource "aws_s3_bucket_server_side_encryption_configuration" "operations_log_bucket" {
+  bucket = aws_s3_bucket.operations_log_bucket.bucket
+
+  rule {
+    apply_server_side_encryption_by_default {
+      sse_algorithm     = "aws:kms"
+    }
+  }
+}
+
+
+resource "aws_s3_bucket_server_side_encryption_configuration" "operations_log_bucket" {
+  bucket = aws_s3_bucket.operations_log_bucket.bucket
+
+  rule {
+    apply_server_side_encryption_by_default {
+      sse_algorithm     = "AES256"
+    }
+  }
 }
 
 resource "aws_s3_bucket_logging" "operations" {
@@ -238,6 +358,18 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "data_science" {
 
   rule {
     apply_server_side_encryption_by_default {
+      sse_algorithm     = "aws:kms"
+    }
+  }
+}
+
+
+
+resource "aws_s3_bucket_server_side_encryption_configuration" "data_science" {
+  bucket = aws_s3_bucket.data_science.bucket
+
+  rule {
+    apply_server_side_encryption_by_default {
       sse_algorithm     = "AES256"
     }
   }
@@ -290,6 +422,38 @@ resource "aws_s3_bucket" "logs" {
 
 resource "aws_s3_bucket" "logs_log_bucket" {
   bucket = "logs-log-bucket"
+}
+
+
+resource "aws_s3_bucket_versioning" "logs_log_bucket" {
+  bucket = aws_s3_bucket.logs_log_bucket.id
+
+  versioning_configuration {
+    status = "Enabled"
+  }
+}
+
+
+
+resource "aws_s3_bucket_server_side_encryption_configuration" "logs_log_bucket" {
+  bucket = aws_s3_bucket.logs_log_bucket.bucket
+
+  rule {
+    apply_server_side_encryption_by_default {
+      sse_algorithm     = "aws:kms"
+    }
+  }
+}
+
+
+resource "aws_s3_bucket_server_side_encryption_configuration" "logs_log_bucket" {
+  bucket = aws_s3_bucket.logs_log_bucket.bucket
+
+  rule {
+    apply_server_side_encryption_by_default {
+      sse_algorithm     = "AES256"
+    }
+  }
 }
 
 resource "aws_s3_bucket_logging" "logs" {
