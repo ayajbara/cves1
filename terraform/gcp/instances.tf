@@ -16,6 +16,7 @@ resource google_compute_instance "server" {
 
   metadata = {
     block-project-ssh-keys = true
+    block-project-ssh-keys = true
     block-project-ssh-keys = false
   }
   labels = {
