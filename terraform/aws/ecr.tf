@@ -1,6 +1,6 @@
 resource aws_ecr_repository "repository" {
   name                 = "${local.resource_prefix.value}-repository"
-  image_tag_mutability = "IMMUTABLE"
+  image_tag_mutability = "MUTABLE"
 
   tags = merge({
     Name = "${local.resource_prefix.value}-repository"
@@ -16,12 +16,6 @@ resource aws_ecr_repository "repository" {
     }, {
     keyyy1 = "valueeeee"
   })
-  image_scanning_configuration {
-    scan_on_push = true
-  }
-  encryption_configuration {
-    encryption_type = "KMS"
-  }
 }
 
 locals {

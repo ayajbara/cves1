@@ -13,11 +13,12 @@ resource "aws_db_instance" "default" {
   username                = "admin"
   password                = var.password
   apply_immediately       = true
-  multi_az                = true
+  multi_az                = false
   backup_retention_period = 0
-  storage_encrypted       = true
+  storage_encrypted       = false
   skip_final_snapshot     = true
-  monitoring_interval     = true
+  monitoring_interval     = 0
+  publicly_accessible     = true
 
   tags = merge({
     Name        = "${local.resource_prefix.value}-rds"
@@ -39,7 +40,6 @@ resource "aws_db_instance" "default" {
   lifecycle {
     ignore_changes = ["password"]
   }
-  iam_database_authentication_enabled = true
 }
 
 resource "aws_db_option_group" "default" {
@@ -424,8 +424,6 @@ EOF
     }, {
     keyyy1 = "valueeeee"
   })
-  monitoring = true
-  ebs_optimized = true
 }
 
 output "db_app_public_dns" {
