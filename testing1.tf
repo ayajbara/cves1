@@ -18,3 +18,6 @@ resource "aws_sns_topic" "example3" {
     Owner       = "apps-team"
   }
 }
+
+
+
